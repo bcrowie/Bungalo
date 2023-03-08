@@ -4,10 +4,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
 
-button {
-  background-color: coral;
-  padding: 10px;
-  border-radius: 20px;;
+  .app-main-container {
+    margin: auto;
+    padding: 40px 0;
+    width: 85vw;
+  }
 }
