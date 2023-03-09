@@ -3,24 +3,26 @@ import Icon from '@mdi/react'
 import { mdiChevronDown, mdiPlay, mdiStop } from '@mdi/js';
 import "../styles/DockerContainer.scss"
 
-interface ContainerProps {
-    name: string,
-    summary?: string,
+export interface ContainerProps {
+    Id: String,
+    Image: String,
+    Command: String,
+    Ports: Object[]
+    State: String,
+    Status: String,
 }
 
-const Container: React.FC<ContainerProps> = ({name, summary}: ContainerProps) => {
+const Container: React.FC<ContainerProps> = (props: ContainerProps) => {
     const [expanded, setExpanded] = useState(false);
 
-    const expandHandler = () => {
-        setExpanded(!expanded)
-    }
+    const expandHandler = () => expanded ? setExpanded(true) : setExpanded(false)
 
     return (
         <>
             <div className="docker-container">
                 <div className="docker-container-details">
-                    <h4>{name}</h4>
-                    <p>{summary}</p>
+                    <h4>{props.Id}</h4>
+                    <p>{props.Image}</p>
                 </div>
                 <div className={`docker-container-menu ${expanded}`}>
                     <button onClick={() => expandHandler()} className='chevron-button'>

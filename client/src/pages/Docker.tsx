@@ -1,34 +1,28 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Container from '../components/Container'
+import { ContainerProps } from '../components/Container'
 import '../styles/Docker.scss'
 
-const summary = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet corrupti explicabo quos labore quibusdam id."
-
-interface ContainerInterface {
-    Id: String,
-    Image: String,
-    Command: String,
-    Ports: Object[]
-    State: String,
-    Status: String,
+interface ContainersArray {
+    containers: Array<ContainerProps>
 }
 
-interface ReturnDockerData {
-    data: ContainerInterface[]
+interface DockerDataProps {
+    data: { containers: ContainersArray }
     status: Number
     statusText: String
 }
 
 const Docker: React.FC = () => {
-    const [containers, setContainers] = useState({})
-
-    const getContainers = async () => {
-        const response: ReturnDockerData = await axios.get('containers/list-containers')
-        return response
-    }
+    const [containers, setContainers] = useState<ContainersArray | any>([])
 
     useEffect(() => {
+        const getContainers = async () => {
+            const response: DockerDataProps = await axios.get('containers/list-containers')
+            console.log(response)
+            return response.data.containers
+        }
         setContainers(getContainers())
     }, [])
 
@@ -36,9 +30,13 @@ const Docker: React.FC = () => {
         <>
             <div className="app-main-container">
                 <div className="docker-containers">
-                    <Container name="test" summary={summary} />
-                    <Container name="test" summary={summary} />
-                    <Container name="test" summary={summary} />
+                    {/* <p>{containers[0]}</p> */}
+                    {/* {containers.map((container: ContainerProps) => {
+                        return (
+                            <Container Id={container.Id} Image={container.Image} Command={container.Command} 
+                                Ports={container.Ports} State={container.State} Status={container.Status}/>
+                        )
+                    })} */}
                 </div>
             </div>
         </>
