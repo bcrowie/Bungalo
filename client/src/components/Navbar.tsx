@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Icon from '@mdi/react'
 import { mdiCog } from '@mdi/js'
 import '../styles/Navbar.scss'
