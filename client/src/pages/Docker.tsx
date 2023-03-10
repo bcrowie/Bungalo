@@ -1,6 +1,6 @@
 import { SetStateAction, useEffect, useState } from 'react'
-import Container from '../components/Container'
-import { ContainerProps } from '../components/Container'
+import Container from '../components/Container/Container'
+import { ContainerProps } from '../components/Container/Container'
 import '../styles/Docker.scss'
 
 interface DockerDataProps {
@@ -13,7 +13,7 @@ const Docker: React.FC = () => {
     const getContainers = async () => {
         await fetch('/containers/list-containers').then(async res => {
             const response: DockerDataProps = await res.json()
-            console.log(response)
+            console.log(response.containers)
             setContainers(response.containers)
         })
     }
@@ -28,8 +28,8 @@ const Docker: React.FC = () => {
                 <div className="docker-containers">
                     {containers.map((container: ContainerProps) => {
                         return (
-                            <Container Id={container.Id} Image={container.Image} Command={container.Command} 
-                                Ports={container.Ports} State={container.State} Status={container.Status}/>
+                            <Container Id={container.Id} State={container.State} Status={container.Status}
+                                Names={container.Names} Labels={container.Labels}/>
                         )
                     })}
                 </div>

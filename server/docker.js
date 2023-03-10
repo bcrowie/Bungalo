@@ -10,12 +10,12 @@ const containerNotFound = (id) => {
 }
 
 containersRoute.get('/list-containers', async (req, res) => {
-    const containers = await docker.listContainers()
+    const containers = await docker.listContainers({ all: true })
     await res.status(200).json({ containers })
 })
 
 containersRoute.get('/start-container/:container', async (req, res) => {
-    const { containerId } = req.params
+    const containerId = req.params.container
     const container = docker.getContainer(containerId)
 
     if(container) {
@@ -30,7 +30,7 @@ containersRoute.get('/start-container/:container', async (req, res) => {
 })
 
 containersRoute.get('/stop-container/:container', async (req, res) => {
-    const { containerId } = req.params
+    const containerId = req.params.container
     const container = docker.getContainer(containerId)
 
     if (container) {
