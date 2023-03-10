@@ -1,4 +1,4 @@
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect } from "react";
 import Icon from "@mdi/react";
 import { mdiCircleMedium } from "@mdi/js";
 

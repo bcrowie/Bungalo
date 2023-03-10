@@ -15,12 +15,15 @@ export interface ContainerProps {
 }
 
 export interface ContainerMenuProps extends ContainerProps {
+    expanded: boolean
     startContainer: (id: string) => {},
     stopContainer: (id: string) => {}
+    setExpanded(expanded: boolean): void
 }
 
 const Container: React.FC<ContainerProps> = (props: ContainerProps) => {
-    const [running, setRunning] = useState(false)
+    const [running, setRunning] = useState(false);
+    const [expanded, setExpanded] = useState(false);
 
     const stopContainer = async (id: string) => {
         const response = await fetch(`/containers/stop-container/${id}`)
@@ -36,7 +39,7 @@ const Container: React.FC<ContainerProps> = (props: ContainerProps) => {
         <>
             <div className="docker-container">
                 <ContainerDetails Labels={props.Labels} State={props.State} Status={props.Status} Running={running} setRunning={setRunning}/>
-                <ContainerMenu Id={props.Id} startContainer={startContainer} stopContainer={stopContainer}
+                <ContainerMenu expanded={expanded} setExpanded={setExpanded} Id={props.Id} startContainer={startContainer} stopContainer={stopContainer}
                     Labels={props.Labels} Names={props.Names} State={props.State} Status={props.Status} 
                     Running={running} />
             </div>
