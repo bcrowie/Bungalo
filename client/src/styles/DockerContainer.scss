@@ -3,13 +3,17 @@
     color: white;
     width: 300px;
     height: auto;
-    border-radius: 30px;
+    border-radius: 12px;
 
     .docker-container-details{
         padding: 20px;
 
         h4 {
             padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 12px;
         }
     }
 

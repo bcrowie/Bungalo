@@ -1,6 +1,8 @@
 import { SetStateAction, useEffect, useState } from 'react'
+
 import Container from '../components/Container/Container'
 import { ContainerProps } from '../components/Container/Container'
+
 import '../styles/Docker.scss'
 
 interface DockerDataProps {
@@ -13,7 +15,6 @@ const Docker: React.FC = () => {
     const getContainers = async () => {
         await fetch('/containers/list-containers').then(async res => {
             const response: DockerDataProps = await res.json()
-            console.log(response.containers)
             setContainers(response.containers)
         })
     }
