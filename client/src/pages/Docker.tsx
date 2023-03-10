@@ -1,5 +1,4 @@
 import { SetStateAction, useEffect, useState } from 'react'
-import axios from 'axios'
 import Container from '../components/Container'
 import { ContainerProps } from '../components/Container'
 import '../styles/Docker.scss'
