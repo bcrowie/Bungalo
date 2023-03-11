@@ -29,7 +29,7 @@ const Docker: React.FC = () => {
                 <div className="docker-containers">
                     {containers.map((container: ContainerProps) => {
                         return (
-                            <Container Id={container.Id} State={container.State} Status={container.Status}
+                            <Container key={container.Id} Id={container.Id} State={container.State} Status={container.Status}
                                 Names={container.Names} Labels={container.Labels}/>
                         )
                     })}
