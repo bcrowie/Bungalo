@@ -6,6 +6,7 @@ import ContainerMenu from './ContainerMenu'
 import "../../styles/DockerContainer.scss"
 
 export interface ContainerProps {
+    containerView: string,
     Id: string,
     Labels: { "org.opencontainers.image.title": string },
     Names: string,
@@ -37,11 +38,11 @@ const Container: React.FC<ContainerProps> = (props: ContainerProps) => {
 
     return (
         <>
-            <div className="docker-container">
+            <div className={`docker-container ${ expanded ? "expanded" : "" }`}>
                 <ContainerDetails Labels={props.Labels} State={props.State} Status={props.Status} Running={running} setRunning={setRunning}/>
                 <ContainerMenu expanded={expanded} setExpanded={setExpanded} Id={props.Id} startContainer={startContainer} stopContainer={stopContainer}
                     Labels={props.Labels} Names={props.Names} State={props.State} Status={props.Status} 
-                    Running={running} />
+                    containerView={props.containerView} Running={running} />
             </div>
         </>
     )

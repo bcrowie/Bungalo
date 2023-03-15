@@ -1,7 +1,38 @@
-.docker-containers {
+.docker-containers.grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
+
+    .container-view-button {
+        position: absolute;
+        cursor: pointer;
+        top: 80px;
+        right: 50px;
+        .view-button {
+            position: absolute;
+            
+        }
+    }
+}
+
+.docker-containers.sequential {
+    display: flex;
+    flex-direction: column;
+
+    .docker-container {
+        margin-bottom: 20px;
+    }
+
+    .container-view-button {
+        position: absolute;
+        cursor: pointer;
+        top: 80px;
+        right: 50px;
+        .view-button {
+            position: absolute;
+            
+        }
+    }
 }
