@@ -1,9 +1,9 @@
 .docker-container {
-    background-color: grey;
+    background-color: rgb(169, 169, 169);
     color: white;
     width: auto;
     height: 100px;;
-    border-radius: 12px;
+    border-radius: 10px;
     margin: 10px;
     -webkit-box-shadow: 10px 10px 24px -12px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 24px -12px rgba(0,0,0,0.75);
@@ -14,11 +14,17 @@
         align-items: center;
         padding: 20px;
 
-        .docker-container-details-main {
+        .docker-container-details {
             width: 100%;
             display: flex;
             justify-content: space-between;
             flex-direction: column;
+
+            .container-name {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
         }
         img {
             padding-right: 10px;
@@ -49,10 +55,10 @@
         .docker-container-menu-expanded {
             display: flex;
             justify-content: space-evenly;
-            background-color: grey;
+            background-color: rgb(169, 169, 169);
             width: 100%;
             margin: -10px;
-            border-radius: 0 0 12px 12px;
+            border-radius: 0 0 10px 10px;
             -webkit-box-shadow: 10px 10px 24px -12px rgba(0,0,0,0.75);
             -moz-box-shadow: 10px 10px 24px -12px rgba(0,0,0,0.75);
             box-shadow: 10px 10px 24px -12px rgba(0,0,0,0.75);
@@ -62,5 +68,5 @@
 }
 
 .docker-container.expanded {
-    border-radius: 12px 12px 0 0;
+    border-radius: 10px 10px 0 0;
 }

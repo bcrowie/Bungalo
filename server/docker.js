@@ -3,7 +3,8 @@ const containersRoute = new Router()
 const Docker = require('dockerode')
 const socket = '/var/run/docker.sock' || process.env.DOCKERSOCK
 
-const docker = new Docker({socketPath: socket})
+// const docker = new Docker({socketPath: socket})
+const docker = new Docker({ host: "10.10.100.200", port: 2375 })
 
 const containerNotFound = (id) => {
     return `Container ${id} not found.`
