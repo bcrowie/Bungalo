@@ -36,3 +36,27 @@
         }
     }
 }
+
+@media screen and (max-width: 1400px) {
+    .docker-containers.grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .docker-containers.grid {
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-rows: 1fr;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+    }
+
+    .container-view-button {
+        visibility: hidden;
+    }
+  }
