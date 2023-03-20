@@ -12,31 +12,20 @@
         padding: 0 20px;
     }
 
-    .menu-button {
-        cursor: pointer;
-        padding-right: 20px;
-    }
+    .menu {
+        margin-right: 15px;
+        
+        .dark-mode-switch {
+            padding: 10px;
+        }
 
-    .settings-menu {
-        background-color: white;
-        border: solid 1px grey;
-        position: absolute;
-        right: 0px;;
-        top: 60px;
-        width: 200px;
-        border-radius: 0 0 0 20px;
-
-        ul {
-            list-style-type: none;
-
-            li {
-                display: flex;
-                align-items: center;
-                font-size: 20px;
-                padding: 10px;
-
-                a {
-                    padding-left: 5px;
+        button {
+            cursor: pointer;
+            padding: 10px;
+            
+            svg {
+                &:hover{
+                    color: rgb(53, 167, 119);
                 }
             }
         }

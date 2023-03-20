@@ -2,11 +2,17 @@ import { Outlet } from "react-router-dom"
 import Navbar from "../components/Navbar"
 import "../styles/Bungalo.scss"
 
-const Layout: React.FC = () => {
+interface LayoutProps {
+    darkMode: boolean,
+    setDarkMode(darkMode: boolean): void
+}
+
+const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
     return (
         <>
-            <div className="app-container">
-                <Navbar/>
+            <div className="app-container" >
+                <Navbar darkMode={props.darkMode} 
+                setDarkMode={props.setDarkMode} />
                 <Outlet/>
             </div>
         </>
