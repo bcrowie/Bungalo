@@ -1,7 +1,7 @@
 const { Router } = require('express')
 const configRoute = new Router()
 const fs = require('fs')
-const { defaultConfig } = require('./constants')
+const defaultConfig = require('./constants')
 
 configRoute.get('/get-config', async (req, res) => {
     const config = await fs.readFile('./config/config.json', 'utf8', 
@@ -14,8 +14,12 @@ configRoute.get('/get-config', async (req, res) => {
     }
 })
 
-// configRoute.post("./config", (req, res) => {
-//     const { config } = req.headers.config
-// })
+configRoute.post("/set-config", async (req, res) => {
+    const { config } = await req.headers
+    await fs.writeFile(__dirname +'/config/config.json', config, 'utf8', (err) => 
+    err ? console.log(err) : console.log("File written successfully"))
+
+    
+})
 
 module.exports = configRoute
