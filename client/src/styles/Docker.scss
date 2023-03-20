@@ -30,15 +30,17 @@
         cursor: pointer;
         top: 80px;
         right: 50px;
+
         .view-button {
             position: absolute;
 
 
-            
-        }
-        &:hover {
-            color: rgb(53, 53, 167);
+            &:hover {
+                color: rgb(53, 53, 167);
             }
+        }
+        
+
     }
 }
 
