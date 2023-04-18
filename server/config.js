@@ -4,8 +4,10 @@ const fs = require('fs')
 const defaultConfig = require('./constants')
 
 configRoute.get('/get-config', async (req, res) => {
-    const config = await fs.readFile('./config/config.json', 'utf8', 
-    (err, data) => err ? err : data)
+    const config = await fs.readFile(__dirname + '/config/config.json', 'utf8', 
+    (err, data) => err ? console.log(err) : console.log(data))
+
+    console.log(config)
 
     if(config) {
         await res.status(200).json(config)
@@ -19,7 +21,7 @@ configRoute.post("/set-config", async (req, res) => {
     await fs.writeFile(__dirname +'/config/config.json', config, 'utf8', (err) => 
     err ? console.log(err) : console.log("File written successfully"))
 
-    
+
 })
 
 module.exports = configRoute

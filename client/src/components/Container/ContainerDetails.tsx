@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import Icon from "@mdi/react";
 import { mdiCircleMedium } from "@mdi/js";
-import jellyfinIcon from '../../builtin_icons/jellyfin.png'
 
 interface ContainerDetailsProps {
     Labels: { "org.opencontainers.image.title": string },
@@ -13,10 +12,12 @@ interface ContainerDetailsProps {
 }
 
 const prepName = (name: string): string => {
-    return name.slice(1)
+    let newName = name[1].toLowerCase() + name.substring(2)
+    return newName
 }
 
 const ContainerDetails: React.FC<ContainerDetailsProps> = (props: ContainerDetailsProps) => {    
+
     useEffect(() => {
         if(props.State === "running") props.setRunning(true)
     }, [props])
@@ -24,7 +25,7 @@ const ContainerDetails: React.FC<ContainerDetailsProps> = (props: ContainerDetai
     return (
         <>
             <div className="docker-container-details-main">
-                <img src={jellyfinIcon} alt="icon" style={{width: "48px", height: "48px"}}/>
+                <img src={require(`../../builtin_icons/${prepName(props.Names[0])}.png`)} alt="icon" style={{width: "48px", height: "48px"}}/>
                 <div className="docker-container-details">
                     <div className="container-name">
                         <h5>{prepName(props.Names[0])}</h5>

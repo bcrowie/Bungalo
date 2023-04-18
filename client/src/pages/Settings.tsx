@@ -1,4 +1,3 @@
-import { SetStateAction } from "react";
 import "../styles/Settings.scss"
 
 interface SettingsPageProps {
@@ -25,5 +24,5 @@ const Settings: React.FC<SettingsPageProps> = (props: SettingsPageProps) => {
         </>
     )
 }
-
-export default Settings;
+ 
+export default Settings; 
